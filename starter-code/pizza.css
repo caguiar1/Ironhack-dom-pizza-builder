@@ -32,7 +32,7 @@ ol, ul {
   list-style: none;
 }
 /* tables still need 'cellspacing="0"' in the markup */
-table {
+table { 
   border-collapse: separate;
   border-spacing: 0;
 }
