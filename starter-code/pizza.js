@@ -140,6 +140,7 @@ function renderPrice() {
       break;
    
   }
+
   switch(state.mushrooms) {
     case true:
       document.querySelector(".panel.price ul").innerHTML += `<li>$1 mushrooms</li>`;
@@ -149,6 +150,7 @@ function renderPrice() {
       break;
    
   }
+
   switch(state.greenPeppers) {
     case true:
       document.querySelector(".panel.price ul").innerHTML += `<li>$1 green peppers</li>`;
@@ -158,6 +160,7 @@ function renderPrice() {
       break;
    
   }
+
   switch(state.whiteSauce) {
     case true:
       document.querySelector(".panel.price ul").innerHTML += `<li>$3 white sauce</li>`;
@@ -167,6 +170,7 @@ function renderPrice() {
       break;
    
   }
+
   switch(state.glutenFreeCrust) {
     case true:
       document.querySelector(".panel.price ul").innerHTML += `<li>$5 gluten-free crust</li>`;
@@ -177,14 +181,9 @@ function renderPrice() {
    
   }
 
-  
-
-
-
 
 }
 
-renderEverything();
 
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperonni">`
 document.querySelector(".btn.btn-pepperonni").onclick = function() {
