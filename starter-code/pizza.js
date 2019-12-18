@@ -15,9 +15,8 @@ var state = {
   pepperonni: true,
   mushrooms: true,
   greenPeppers: true,
-  whiteSauce: true,
-  glutenFreeCrust: true,
-  Button: false
+  whiteSauce: false,
+  glutenFreeCrust: false
 };
 
 // This function takes care of rendering the pizza based on the state
@@ -30,7 +29,6 @@ function renderEverything() {
   renderGlutenFreeCrust();
   renderButtons();
   renderPrice();
-
 }
 
 function renderPepperonni() {
@@ -89,21 +87,101 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-  if (state.Button) {
-    document.querySelectorAll(".btn").forEach( (button) => {
-      
-      button.onclick = function() {
-        button.classList.toggle("active");
-        renderEverything();
-      }
+  if (state.pepperonni)
+    document.querySelector(".btn-pepperonni").classList.add("active");
+  else document.querySelector(".btn-pepperonni").classList.remove("active");
   
-    })
-  }
-   
+  if (state.mushrooms)
+    document.querySelector(".btn-mushrooms").classList.add("active");
+  else document.querySelector(".btn-mushrooms").classList.remove("active");
+  
+  if (state.greenPeppers)
+    document.querySelector(".btn-green-peppers").classList.add("active");
+  else document.querySelector(".btn-green-peppers").classList.remove("active");
+
+  if (state.whiteSauce)
+    document.querySelector(".btn-sauce").classList.add("active");
+  else document.querySelector(".btn-sauce").classList.remove("active");
+
+  if (state.glutenFreeCrust)
+    document.querySelector(".btn-crust").classList.add("active");
+  else document.querySelector(".btn-crust").classList.remove("active");
 }
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+
+  // if (state.pepperonni){
+  //   document.querySelector(".panel.price ul").innerHTML += `<li>$1 pepperonni</li>`;
+  // }
+
+  // if (state.mushrooms){
+  //   document.querySelector(".panel.price ul").innerHTML += `<li>$1 mushrooms</li>`;
+  // }
+
+  // if (state.greenPeppers){
+  //   document.querySelector(".panel.price ul").innerHTML += `<li>$1 green peppers</li>`;
+  // }
+
+  // if (state.whiteSauce){
+  //   document.querySelector(".panel.price ul").innerHTML += `<li>$3 white sauce</li>`;
+  // }
+
+  // if (state.glutenFreeCrust){
+  //   document.querySelector(".panel.price ul").innerHTML += `<li>$5 gluten-free crust</li>`;
+  // }
+   
+  switch(state.pepperonni) {
+    case true:
+      document.querySelector(".panel.price ul").innerHTML += `<li>$1 pepperonni</li>`;
+      break;
+    case false:
+      document.querySelector(".panel.price ul").innerHTML -= `<li>$1 pepperonni</li>`;
+      break;
+   
+  }
+  switch(state.mushrooms) {
+    case true:
+      document.querySelector(".panel.price ul").innerHTML += `<li>$1 mushrooms</li>`;
+      break;
+    case false:
+      document.querySelector(".panel.price ul").innerHTML -= `<li>$1 mushrooms</li>`;
+      break;
+   
+  }
+  switch(state.greenPeppers) {
+    case true:
+      document.querySelector(".panel.price ul").innerHTML += `<li>$1 green peppers</li>`;
+      break;
+    case false:
+      document.querySelector(".panel.price ul").innerHTML -= `<li>$1 green peppers</li>`;
+      break;
+   
+  }
+  switch(state.whiteSauce) {
+    case true:
+      document.querySelector(".panel.price ul").innerHTML += `<li>$3 white sauce</li>`;
+      break;
+    case false:
+      document.querySelector(".panel.price ul").innerHTML -= `<li>$1 white sauce</li>`;
+      break;
+   
+  }
+  switch(state.glutenFreeCrust) {
+    case true:
+      document.querySelector(".panel.price ul").innerHTML += `<li>$5 gluten-free crust</li>`;
+      break;
+    case false:
+      document.querySelector(".panel.price ul").innerHTML -= `<li>$5 gluten-free crust</li>`;
+      break;
+   
+  }
+
+  
+
+
+
+
 }
 
 renderEverything();
